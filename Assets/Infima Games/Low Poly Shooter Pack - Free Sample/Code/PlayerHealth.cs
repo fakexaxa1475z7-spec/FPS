@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public DamageFlash damageFlash;
 
     [Header("Regen")]
     public int regenAmount = 1;        // ฟื้นครั้งละเท่าไหร่
@@ -52,10 +53,19 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("HP: " + currentHealth);
 
+        // 🔥 ทำให้จอแดง
+        if (damageFlash != null)
+        {
+            damageFlash.Flash();
+        }
+
         if (currentHealth <= 0)
         {
-            Debug.Log("Player Dead");
-            Time.timeScale = 0f; // หยุดเกมเมื่อผู้เล่นตาย
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.EndGame();
+            }
         }
     }
 }
