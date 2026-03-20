@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // 👈 สำคัญ
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -7,10 +7,14 @@ public class GameManager : MonoBehaviour
     public float gameTime = 600f; // 10 นาที
 
     public TextMeshProUGUI timerText;
-    public GameObject gameOverPanel;
-    public TextMeshProUGUI finalScoreText;
+
 
     bool isGameOver = false;
+
+    void Start()
+    {
+        ScoreManager.Instance.ResetScore();
+    }
 
     void Update()
     {
@@ -43,17 +47,28 @@ public class GameManager : MonoBehaviour
 
         int score = ScoreManager.Instance.score;
 
+        // ✅ ดึงชื่อผู้เล่นจาก Login
+        string username = PlayerPrefs.GetString("currentUser");
+
+        if (string.IsNullOrEmpty(username))
+        {
+            Debug.LogError("NO USER LOGGED IN!");
+            return;
+        }
+
         // 💾 เก็บคะแนนล่าสุด
         PlayerPrefs.SetInt("FinalScore", score);
 
-        // 🏆 โหลด High Score เดิม
-        int best = PlayerPrefs.GetInt("HighScore", 0);
+        // 🏆 โหลด HighScore ของ "คนนี้"
+        int best = PlayerPrefs.GetInt("HighScore_" + username, 0);
 
         // 🔥 ถ้าคะแนนใหม่มากกว่า → อัปเดต
         if (score > best)
         {
-            PlayerPrefs.SetInt("HighScore", score);
-        }
+            PlayerPrefs.SetInt("HighScore_" + username, score);
+        } 
+
+        PlayerPrefs.Save();
 
         // ไป Scene จบเกม
         SceneManager.LoadScene("GameOver");

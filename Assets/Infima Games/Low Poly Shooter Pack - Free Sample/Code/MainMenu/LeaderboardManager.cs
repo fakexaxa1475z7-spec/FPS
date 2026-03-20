@@ -14,35 +14,91 @@ public class PlayerScore
         this.score = score;
     }
 }
+
 public class LeaderboardManager : MonoBehaviour
 {
     public TextMeshProUGUI leaderboardText;
 
     private List<PlayerScore> scores = new List<PlayerScore>();
 
+
     void Start()
     {
         LoadScores();
+
+        // 🔥 เช็คว่ามี score ใหม่ไหม
+        if (PlayerPrefs.HasKey("FinalScore"))
+        {
+            string username = PlayerPrefs.GetString("currentUser");
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                // 👉 ใช้ HighScore (สำคัญมาก)
+                int best = PlayerPrefs.GetInt("HighScore_" + username, 0);
+
+                AddScore(username, best);
+
+                Debug.Log("ADD TO LB: " + username + " " + best);
+            }
+
+            // 🔥 กัน add ซ้ำ
+            PlayerPrefs.DeleteKey("FinalScore");
+        }
+
         DisplayLeaderboard();
     }
 
     public void AddScore(string playerName, int score)
     {
-        scores.Add(new PlayerScore(playerName, score));
+        bool found = false;
 
-        // เรียงคะแนนมาก → น้อย
+        for (int i = 0; i < scores.Count; i++)
+        {
+            if (scores[i].playerName == playerName)
+            {
+                found = true;
+
+                // 🔥 อัปเดตเฉพาะถ้าคะแนนดีกว่า
+                if (score > scores[i].score)
+                {
+                    scores[i].score = score;
+                }
+
+                break;
+            }
+        }
+
+        // 👉 ถ้ายังไม่มีชื่อ → เพิ่มใหม่
+        if (!found)
+        {
+            scores.Add(new PlayerScore(playerName, score));
+        }
+
+        // 🥇 เรียงคะแนนมาก → น้อย
         scores.Sort((a, b) => b.score.CompareTo(a.score));
 
-        // เก็บแค่ Top 10
+        // 🎯 Top 10
         if (scores.Count > 10)
             scores.RemoveAt(scores.Count - 1);
 
         SaveScores();
-        DisplayLeaderboard();
     }
 
-    void DisplayLeaderboard()
+    // 🔥 ต้องเป็น public
+    public void DisplayLeaderboard()
     {
+        if (leaderboardText == null)
+        {
+            Debug.Log("leaderboardText NOT SET!");
+            return;
+        }
+
+        if (scores == null || scores.Count == 0)
+        {
+            leaderboardText.text = "No scores yet";
+            return;
+        }
+
         leaderboardText.text = "";
 
         for (int i = 0; i < scores.Count; i++)
@@ -63,12 +119,25 @@ public class LeaderboardManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Leaderboard"))
         {
             string json = PlayerPrefs.GetString("Leaderboard");
-            scores = JsonUtility.FromJson<ScoreListWrapper>(json).scores;
+
+            ScoreListWrapper wrapper = JsonUtility.FromJson<ScoreListWrapper>(json);
+
+            if (wrapper != null && wrapper.scores != null)
+            {
+                scores = wrapper.scores;
+            }
+            else
+            {
+                scores = new List<PlayerScore>();
+            }
+        }
+        else
+        {
+            scores = new List<PlayerScore>();
         }
     }
 }
 
-// wrapper สำหรับ Json
 [System.Serializable]
 public class ScoreListWrapper
 {

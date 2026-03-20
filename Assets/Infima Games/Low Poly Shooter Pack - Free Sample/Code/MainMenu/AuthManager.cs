@@ -64,13 +64,20 @@ public class AuthManager : MonoBehaviour
         {
             loginMessage.text = "Login successful!";
 
-            // เปลี่ยน Scene
+            // ✅ เก็บ user ที่ login
+            PlayerPrefs.SetString("currentUser", user);
+            PlayerPrefs.Save();
+            // ไปหน้าเกม
             SceneManager.LoadScene("Game");
         }
         else
         {
             loginMessage.text = "The password is incorrect";
         }
+    }
+    public void Logout()
+    {
+        PlayerPrefs.DeleteKey("currentUser");
     }
     public void QuitGame()
     {
