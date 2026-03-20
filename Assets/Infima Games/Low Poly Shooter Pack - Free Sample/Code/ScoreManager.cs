@@ -3,7 +3,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    int score;
+    public int score;
 
     void Awake()
     {
