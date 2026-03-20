@@ -73,4 +73,8 @@ public class GameManager : MonoBehaviour
         // ไป Scene จบเกม
         SceneManager.LoadScene("GameOver");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

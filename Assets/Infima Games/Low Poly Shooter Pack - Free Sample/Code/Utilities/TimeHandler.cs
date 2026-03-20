@@ -26,6 +26,9 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         private float current = 1.0f;
 
+        private float maxTimeScale = 5.0f;
+        private float minTimeScale = 0.0f;
+
         /// <summary>
         /// Updates The Time Scale.
         /// </summary>
@@ -51,10 +54,9 @@ namespace InfimaGames.LowPolyShooterPack
         /// Increase Time Scale Value.
         /// </summary>
         private void Increase(float value = 1.0f)
-        {
-            //Change.
-            Change(Mathf.Clamp01(current + value));
-        }
+{
+    Change(Mathf.Clamp(current + value, minTimeScale, maxTimeScale));
+}
 
         /// <summary>
         /// Pause.
