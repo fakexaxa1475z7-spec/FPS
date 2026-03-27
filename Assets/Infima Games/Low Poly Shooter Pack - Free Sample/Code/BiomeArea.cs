@@ -5,7 +5,7 @@ public enum BiomeType
     Forest,
     Grassland,
     Mountain,
-    Desert
+    Water,
 }
 
 public class BiomeArea : MonoBehaviour

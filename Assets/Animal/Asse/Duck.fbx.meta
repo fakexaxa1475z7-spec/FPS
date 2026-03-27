@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8139689c7de31b441af4ff188fe746ad
+guid: 5c52bb667ff6e714dad3c3e57ff2e412
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: RabbitIdle
+      name: DuckIdle
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
@@ -60,9 +60,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: RabbitWalk
+      name: DuckWalk
       takeName: Take 001
-      internalID: -998496362607748373
+      internalID: 9067093048684652814
       firstFrame: 1
       lastFrame: 59
       wrapMode: 0
@@ -89,9 +89,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: RabbitRun
+      name: DuckRun
       takeName: Take 001
-      internalID: 3060872287085348379
+      internalID: -8481709605947105597
       firstFrame: 1
       lastFrame: 59
       wrapMode: 0
@@ -120,7 +120,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 70
+    globalScale: 80
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -178,7 +178,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 70
+    globalScale: 0.79999995
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

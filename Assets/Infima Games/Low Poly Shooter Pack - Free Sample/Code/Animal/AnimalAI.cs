@@ -50,6 +50,10 @@ public class AnimalAI : MonoBehaviour
     public int damageToPlayer = 20;
     public float attackCooldown = 2f;
 
+    [Header("Sound")]
+    public AudioClip hitSound;
+    AudioSource audioSource;
+
     float lastAttackTime;
 
     Animator anim;
@@ -62,6 +66,13 @@ public class AnimalAI : MonoBehaviour
         if (p != null)
         {
             player = p.transform;
+        }
+
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
 
         currentHealth = maxHealth;
@@ -213,6 +224,11 @@ public class AnimalAI : MonoBehaviour
             return;
 
         currentHealth -= damage;
+
+        if (hitSound != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
 
         StartFlee();
 
