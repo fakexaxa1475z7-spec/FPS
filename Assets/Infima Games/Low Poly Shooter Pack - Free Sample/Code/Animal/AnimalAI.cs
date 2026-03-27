@@ -24,6 +24,12 @@ public class AnimalAI : MonoBehaviour
     [Header("Score")]
     public int scoreValue = 20;
 
+    [Header("Idle")]
+    bool isWaiting = false;
+    float waitTimer = 0f;
+    public float minWait = 2f;
+    public float maxWait = 5f;
+
     [Header("Wander")]
     public float wanderRadius = 20f;
     public float wanderTimer = 5f;
@@ -38,6 +44,7 @@ public class AnimalAI : MonoBehaviour
     public float walkSpeed = 2f;
 
     [Header("Attack")]
+    public bool canAttack = false;
     public float attackDistance = 10f;
     public float chargeSpeed = 10f;
     public int damageToPlayer = 20;
@@ -45,11 +52,17 @@ public class AnimalAI : MonoBehaviour
 
     float lastAttackTime;
 
+    Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
+        {
+            player = p.transform;
+        }
 
         currentHealth = maxHealth;
 
@@ -63,14 +76,24 @@ public class AnimalAI : MonoBehaviour
     {
         if (currentState == State.Dead) return;
 
+        // 👉 ถ้าไม่มี player → เดินสุ่มอย่างเดียว
+        if (player == null)
+        {
+            Wander();
+
+            float speed = agent.velocity.magnitude;
+            if (speed < 0.1f) speed = 0;
+
+            anim.SetFloat("Speed", speed);
+            return;
+        }
+
         float distance = Vector3.Distance(transform.position, player.position);
 
-        // ถ้าใกล้มาก → โจมตี
-        if (distance < attackDistance && Time.time > lastAttackTime + attackCooldown)
+        if (distance < attackDistance && Time.time > lastAttackTime + attackCooldown && canAttack)
         {
             StartCharge();
         }
-        // ถ้าอยู่กลางๆ → หนี
         else if (distance < detectDistance && currentState != State.Flee && currentState != State.Charge)
         {
             StartFlee();
@@ -90,17 +113,43 @@ public class AnimalAI : MonoBehaviour
                 Charge();
                 break;
         }
+
+        float speed2 = agent.velocity.magnitude;
+        if (speed2 < 0.1f) speed2 = 0;
+
+        anim.SetFloat("Speed", speed2);
     }
 
     void Wander()
     {
-        timer += Time.deltaTime;
+        // ถ้ากำลัง "หยุด"
+        if (isWaiting)
+        {
+            waitTimer -= Time.deltaTime;
 
-        if (timer >= wanderTimer)
+            if (waitTimer <= 0f)
+            {
+                isWaiting = false;
+            }
+
+            return;
+        }
+
+        // ถ้าเดินถึงแล้ว → หยุด
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            isWaiting = true;
+            waitTimer = Random.Range(minWait, maxWait);
+
+            agent.ResetPath(); // หยุดเดิน
+            return;
+        }
+
+        // ถ้ายังไม่มีเป้าหมาย → สุ่มเดิน
+        if (!agent.hasPath)
         {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius);
             agent.SetDestination(newPos);
-            timer = 0;
         }
     }
 
@@ -112,14 +161,21 @@ public class AnimalAI : MonoBehaviour
 
     void Flee()
     {
-        Vector3 dir = transform.position - player.position;
-        Vector3 newPos = transform.position + dir.normalized * fleeDistance;
-
-        NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(newPos, out hit, fleeDistance, NavMesh.AllAreas))
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-            agent.SetDestination(hit.position);
+            Vector3 dir = transform.position - player.position;
+
+            // เพิ่ม randomness
+            Vector3 randomDir = dir.normalized + Random.insideUnitSphere * 0.5f;
+
+            Vector3 newPos = transform.position + randomDir.normalized * fleeDistance;
+
+            NavMeshHit hit;
+
+            if (NavMesh.SamplePosition(newPos, out hit, fleeDistance, NavMesh.AllAreas))
+            {
+                agent.SetDestination(hit.position);
+            }
         }
     }
     void StartCharge()
@@ -176,6 +232,8 @@ public class AnimalAI : MonoBehaviour
         agent.isStopped = true;
 
         GetComponent<Collider>().enabled = false;
+
+        anim.SetBool("IsDead", true);
 
         if (ScoreManager.Instance != null)
         {

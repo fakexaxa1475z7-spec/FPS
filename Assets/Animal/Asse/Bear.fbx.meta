@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 6ce354b50b0f5f249a70141666ceee9c
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BearRun
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.9
+    - serializedVersion: 16
+      name: BearIdle
+      takeName: Take 001
+      internalID: -998496362607748373
+      firstFrame: 1
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.9
+    - serializedVersion: 16
+      name: BearWalk
+      takeName: Take 001
+      internalID: 3060872287085348379
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.9
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 120
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Bear(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: group1
+      parentName: Bear(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1
+      parentName: group1
+      position: {x: -0, y: 1.2289082, z: -0.88854784}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pSphere1
+      parentName: group1
+      position: {x: -0.087702945, y: 0.9597009, z: 1.4203997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.02340107, y: 0.02340107, z: 0.02340107}
+    - name: hip
+      parentName: Bear(Clone)
+      position: {x: -0, y: 1.2144228, z: -0.85251427}
+      rotation: {x: -0.49300936, y: 0.49300936, z: 0.50689423, w: 0.50689423}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lnong1
+      parentName: hip
+      position: {x: 0.049192965, y: 0.44780076, z: -0.15599784}
+      rotation: {x: 0.6267082, y: -0.0020688362, z: 0.7792467, w: -0.0026737154}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lnong2
+      parentName: Lnong1
+      position: {x: -0.5136552, y: 9.244463e-34, z: -4.9960035e-17}
+      rotation: {x: -4.832158e-35, y: -0.08462384, z: -4.697567e-18, w: 0.996413}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lteen3
+      parentName: Lnong2
+      position: {x: -0.47860563, y: 4.4804345e-18, z: 1.1657341e-16}
+      rotation: {x: 2.3816393e-18, y: -0.7262868, z: -2.3816393e-18, w: 0.68739176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lteen4
+      parentName: Lteen3
+      position: {x: -0.30465207, y: 0, z: -7.285838e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rnong1
+      parentName: hip
+      position: {x: 0.049193468, y: -0.4478004, z: -0.15599759}
+      rotation: {x: 0.7792471, y: -0.0026735964, z: -0.62670773, w: 0.0020687582}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rnong2
+      parentName: Rnong1
+      position: {x: 0.5136556, y: 0, z: 0.0000005694429}
+      rotation: {x: 4.928801e-33, y: -0.08462384, z: 1.5535215e-17, w: 0.996413}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rteen3
+      parentName: Rnong2
+      position: {x: 0.47860533, y: -6.661338e-17, z: -0.00000002384955}
+      rotation: {x: 2.3816393e-18, y: -0.7262868, z: -2.3816393e-18, w: 0.68739176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rteen4
+      parentName: Rteen3
+      position: {x: 0.30465183, y: 6.661338e-17, z: -0.000000013913425}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kan1
+      parentName: hip
+      position: {x: -0.42821002, y: 3.0622282e-33, z: 6.1170225e-17}
+      rotation: {x: 0.45360506, y: 0.70305, z: 0.026398482, w: 0.5470523}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kan2
+      parentName: kan1
+      position: {x: -0.78695273, y: -1.8670875e-18, z: -2.3314682e-16}
+      rotation: {x: 0, y: -0.22345248, z: 3.1685092e-34, w: 0.9747149}
+      scale: {x: 1, y: 1, z: 1}
+    - name: K
+      parentName: kan2
+      position: {x: -0.44784155, y: -4.6222316e-34, z: 0.023331972}
+      rotation: {x: 0.99781835, y: 6.931324e-18, z: 0.06601954, w: 6.037268e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: H
+      parentName: K
+      position: {x: -0.5778265, y: -8.309904e-18, z: 0.06785552}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lshol
+      parentName: kan2
+      position: {x: -0.084752284, y: 0.44780076, z: -0.24131088}
+      rotation: {x: 0.7159589, y: -4.2748896e-17, z: 0.6981424, w: 4.3839838e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Larm
+      parentName: Lshol
+      position: {x: -0.5136552, y: 9.244463e-34, z: -4.9960035e-17}
+      rotation: {x: -0.02139885, y: -0.44927028, z: 0.251963, w: 0.85686237}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lteen1
+      parentName: Larm
+      position: {x: -0.47860563, y: 4.4804345e-18, z: 1.1657341e-16}
+      rotation: {x: 2.3816393e-18, y: -0.7262868, z: -2.3816393e-18, w: 0.68739176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lteen2
+      parentName: Lteen1
+      position: {x: -0.30465207, y: 0, z: -7.285838e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rshol
+      parentName: kan2
+      position: {x: -0.084751986, y: -0.4478004, z: -0.24131075}
+      rotation: {x: 0.014614312, y: 0.4941188, z: 0.7062992, w: -0.5067293}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rarm
+      parentName: Rshol
+      position: {x: 0.5136556, y: 6.661338e-17, z: 0.0000005694429}
+      rotation: {x: -0.056001887, y: 0.19177367, z: 0.071103245, w: 0.9772569}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rteen1
+      parentName: Rarm
+      position: {x: 0.47860533, y: -1.3322676e-16, z: -0.000000023849548}
+      rotation: {x: 2.3816393e-18, y: -0.7262868, z: -2.3816393e-18, w: 0.68739176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rteen2
+      parentName: Rteen1
+      position: {x: 0.30465183, y: 0, z: -0.000000013913425}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 120
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
